@@ -1,9 +1,4 @@
 FROM mcr.microsoft.com/dotnet/aspnet:9.0-bookworm-slim@sha256:1e12c265e1e1b3714c5805ab0cab63380eb687b0a04f3b3ef3392494a6122614 AS base
-RUN apt-get -y update && apt-get -y upgrade && apt-get install -y --no-install-recommends ffmpeg python3 python3-pip
-COPY ["HomeAutomation.Web/BoilerGaugeReader/requirements.txt", "/tmp/"]
-RUN pip3 install --no-cache-dir -r /tmp/requirements.txt --break-system-packages
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
-RUN rm -rf /tmp/requirements.txt
 USER app
 WORKDIR /app
 EXPOSE 8080

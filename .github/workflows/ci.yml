@@ -58,20 +58,8 @@ jobs:
           --set ingress.host="${{ vars.HOST }}" \
           --set env.secret.Key="${{ secrets.KEY }}" \
           --set env.secret.Mqtt__Password="${{ secrets.MQTT_PASSWORD }}" \
-          --set env.secret.Package__OpenAIApiKey="${{ secrets.PACKAGE_OPENAI_API_KEY }}" \
-          --set env.secret.Package__Locations__0__ImageUrl="${{ secrets.PACKAGE_LOCATIONS_0_IMAGE_URL }}" \
-          --set env.secret.Package__Locations__1__ImageUrl="${{ secrets.PACKAGE_LOCATIONS_1_IMAGE_URL }}" \
-          --set env.secret.Boiler__RtspUrl="${{ secrets.BOILER_RTSP_URL }}" \
           --set env.normal.Mqtt__Server="${{ vars.MQTT_SERVER }}" \
-          --set env.normal.Mqtt__Username="${{ vars.MQTT_USERNAME }}" \
-          --set env.normal.Package__Locations__0__Id="${{ vars.PACKAGE_LOCATIONS_0_ID }}" \
-          --set env.normal.Package__Locations__1__Id="${{ vars.PACKAGE_LOCATIONS_1_ID }}" \
-          --set env.normal.Boiler__GaugeRadius="${{ vars.BOILER_GAUGE_RADIUS }}" \
-          --set env.normal.Boiler__MinAngle="${{ vars.BOILER_MIN_ANGLE }}" \
-          --set env.normal.Boiler__MaxAngle="${{ vars.BOILER_MAX_ANGLE }}" \
-          --set env.normal.Boiler__MinValue="${{ vars.BOILER_MIN_VALUE }}" \
-          --set env.normal.Boiler__MaxValue="${{ vars.BOILER_MAX_VALUE }}" \
-          --set env.normal.Boiler__MinNeedleSize="${{ vars.BOILER_MIN_NEEDLE_SIZE }}"
+          --set env.normal.Mqtt__Username="${{ vars.MQTT_USERNAME }}"
       working-directory: charts
 
     - name: Wait for certificate to be ready

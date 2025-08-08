@@ -16,8 +16,6 @@ builder.Services.AddControllers();
 builder.Services.AddHttpClient();
 builder.Services.AddSingleton<MqttClientFactory>();
 builder.Services.AddSingleton(mqttClientOptions);
-builder.Services.Configure<PackageOptions>(builder.Configuration.GetSection("Package"));
-builder.Services.Configure<BoilerOptions>(builder.Configuration.GetSection("Boiler"));
 builder.Services.AddMemoryCache();
 
 var app = builder.Build();
