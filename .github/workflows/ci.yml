@@ -68,4 +68,5 @@ jobs:
         name: "homeautomation-tls"
 
     - name: Disconnect from Kubernetes
+      if: always()
       uses: AmyJeanes/Abyss-Infrastructure/.github/actions/disconnect-k8s@main
