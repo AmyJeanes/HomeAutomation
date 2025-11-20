@@ -18,7 +18,7 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+    - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6
     
     - name: Build Docker image
       run: docker build -f HomeAutomation.Web/Dockerfile -t $DOCKER_USERNAME/homeautomation.web:latest .
@@ -40,7 +40,7 @@ jobs:
     needs: [build]
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+    - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6
     
     - name: Connect to Kubernetes
       uses: AmyJeanes/Abyss-Infrastructure/.github/actions/connect-k8s@main
