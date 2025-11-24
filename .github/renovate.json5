@@ -13,7 +13,7 @@
     {
       // Always want to use latest version
       "matchDepNames": [
-        "mattjeanes/homeautomation.web"
+        "ghcr.io/amyjeanes/homeautomation.web"
       ],
       "matchUpdateTypes": [
         "pinDigest"
