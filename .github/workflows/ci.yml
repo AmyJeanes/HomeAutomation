@@ -28,6 +28,8 @@ jobs:
       run: |
         echo $GITHUB_TOKEN | docker login ghcr.io --username AmyJeanes --password-stdin
         docker push ghcr.io/amyjeanes/homeautomation.web:latest
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       if: github.ref == 'refs/heads/main' && github.event.inputs.skipBuild != 'true'
   deploy:
     if: github.ref == 'refs/heads/main'
