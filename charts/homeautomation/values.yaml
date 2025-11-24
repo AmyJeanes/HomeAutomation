@@ -1,6 +1,6 @@
 replicaCount: 1
 image:
-  repository: mattjeanes/homeautomation.web
+  repository: ghcr.io/amyjeanes/homeautomation.web
   tag: latest
   pullPolicy: Always
 ingress:

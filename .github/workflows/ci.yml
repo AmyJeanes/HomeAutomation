@@ -21,18 +21,13 @@ jobs:
     - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6
     
     - name: Build Docker image
-      run: docker build -f HomeAutomation.Web/Dockerfile -t $DOCKER_USERNAME/homeautomation.web:latest .
-      env:
-        DOCKER_USERNAME: ${{ vars.DOCKER_USERNAME }}
+      run: docker build -f HomeAutomation.Web/Dockerfile -t ghcr.io/amyjeanes/homeautomation.web:latest .
       if: github.event.inputs.skipBuild != 'true'
 
     - name: Push Docker images
       run: |
-        echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin
-        docker push $DOCKER_USERNAME/homeautomation.web:latest
-      env:
-        DOCKER_USERNAME: ${{ vars.DOCKER_USERNAME }}
-        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        echo $GITHUB_TOKEN | docker login ghcr.io --username AmyJeanes --password-stdin
+        docker push ghcr.io/amyjeanes/homeautomation.web:latest
       if: github.ref == 'refs/heads/main' && github.event.inputs.skipBuild != 'true'
   deploy:
     if: github.ref == 'refs/heads/main'
