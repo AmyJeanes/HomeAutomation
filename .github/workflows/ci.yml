@@ -40,7 +40,7 @@ jobs:
     - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
     
     - name: Connect to Kubernetes
-      uses: AmyJeanes/Abyss-Infrastructure/.github/actions/connect-k8s@c739ee1a2a209157081b6420e86df40e471b5854 # main
+      uses: AmyJeanes/Abyss-Infrastructure/.github/actions/connect-k8s@e8af3ef22416118666beafba0e5b3f9d47362f6f # main
       with:
         kubeconfig: "${{ secrets.KUBECONFIG }}"
         hostname: "${{ vars.KUBERNETES_API_HOSTNAME }}"
@@ -60,10 +60,10 @@ jobs:
       working-directory: charts
 
     - name: Wait for certificate to be ready
-      uses: AmyJeanes/Abyss-Infrastructure/.github/actions/wait-kube-certificate@c739ee1a2a209157081b6420e86df40e471b5854 # main
+      uses: AmyJeanes/Abyss-Infrastructure/.github/actions/wait-kube-certificate@e8af3ef22416118666beafba0e5b3f9d47362f6f # main
       with:
         name: "homeautomation-tls"
 
     - name: Disconnect from Kubernetes
       if: always()
-      uses: AmyJeanes/Abyss-Infrastructure/.github/actions/disconnect-k8s@c739ee1a2a209157081b6420e86df40e471b5854 # main
+      uses: AmyJeanes/Abyss-Infrastructure/.github/actions/disconnect-k8s@e8af3ef22416118666beafba0e5b3f9d47362f6f # main
